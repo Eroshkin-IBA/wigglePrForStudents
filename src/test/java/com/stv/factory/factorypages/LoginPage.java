@@ -6,10 +6,13 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends FactoryPage {
     @FindBy(className = "bem-checkout__login-container")
     private WebElement loginContainer;
+
     @FindBy(id = "LogOnModel_UserName")
     private WebElement emailInput;
+
     @FindBy(id = "LogOnModel_Password")
     private WebElement passwordInput;
+
     @FindBy(id = "qa-login")
     private WebElement signInButton;
 
@@ -25,11 +28,15 @@ public class LoginPage extends FactoryPage {
     @FindBy(id = "qa-dual-register")
     private WebElement continueButton;
 
-    public void clickSignOutButton(){
+
+
+    public void clickSignOutButton() {
         signOutButton.click();
     }
 
-    public void registerEmail(String email){
+
+
+    public void registerEmail(String email) {
         registerEmail.sendKeys(email);
         continueButton.click();
     }
@@ -43,7 +50,6 @@ public class LoginPage extends FactoryPage {
     public boolean isErrorMessageDisplayed() {
         return loginErrorMessage.isDisplayed();
     }
-
 
 
     public boolean isLoginContainerDisplayed() {

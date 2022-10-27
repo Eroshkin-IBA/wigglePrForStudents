@@ -13,17 +13,17 @@ import static com.stv.framework.core.lib.WigglePageURLs.START_URL;
 public class MainFactoryTest extends BasicFactoryTest {
     @DataProvider(name = "forSignIn")
     public static Object[][] forSignIn() {
-        return new Object[][]{{"freerun4ik1998@gmail.com", "@freerun4ik", true }};
+        return new Object[][]{{"freerun4ik1998@gmail.com", "@freerun4ik", true}};
     }
 
     @DataProvider(name = "forExistedEmail")
     public static Object[][] forExistedEmail() {
-        return new Object[][]{{"freerun4ik1998@gmail.com", true }};
+        return new Object[][]{{"freerun4ik1998@gmail.com", true}};
     }
 
     @DataProvider(name = "forIncorrectUserData")
     public static Object[][] forIncorrectUserData() {
-        return new Object[][]{{"freerun4ik1998@gmail.com", "@freerun", true }, {"freerun4ik1998@gmail.com", "@", true }};
+        return new Object[][]{{"freerun4ik1998@gmail.com", "@freerun", true}, {"freerun4ik1998@gmail.com", "@", true}};
     }
 
     AccountPage accountPage = new AccountPage();
@@ -45,7 +45,6 @@ public class MainFactoryTest extends BasicFactoryTest {
 
     @Test(dataProvider = "forSignIn")
     public void isSignedIn(String email, String password, boolean expected) {
-
         getDriver().get(LOGIN_URL);
         loginPage.signIn(email, password);
         waitPage();
@@ -56,16 +55,15 @@ public class MainFactoryTest extends BasicFactoryTest {
 
     @Test(dataProvider = "forIncorrectUserData")
     public void isCorrectUserData(String email, String password, boolean expected) {
-
         getDriver().get(LOGIN_URL);
         loginPage.signIn(email, password);
         waitPage();
         boolean actualResult = loginPage.isErrorMessageDisplayed();
         Assert.assertEquals(actualResult, expected);
-
     }
+
     @Test(dataProvider = "forExistedEmail")
-    public void registerExistedEmail(String email,boolean expected){
+    public void registerExistedEmail(String email, boolean expected) {
         getDriver().get(LOGIN_URL);
         loginPage.registerEmail(email);
         boolean actualResult = loginPage.isErrorMessageDisplayed();
