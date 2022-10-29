@@ -41,9 +41,22 @@ public class LoginPage extends FactoryPage {
         continueButton.click();
     }
 
+    public void enterEmail(String e){
+        emailInput.sendKeys(e);
+    }
+
+    public void enterPassword(String p){
+        passwordInput.sendKeys(p);
+    }
+
+
     public void signIn(String email, String password) {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
+        signInButton.click();
+    }
+
+    public void clickSignIn(){
         signInButton.click();
     }
 
